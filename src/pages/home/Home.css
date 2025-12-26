@@ -1,0 +1,404 @@
+.home-container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    /* Center content horizontally */
+    position: relative;
+    overflow: hidden;
+    /* Hide overflow from usage of absolute blobs */
+}
+
+/* --- Left Section --- */
+.home-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Push content towards center */
+    padding-right: 4rem;
+    /* Gap between left and right */
+    z-index: 10;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.name-title {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1;
+}
+
+.job-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent-blue);
+    /* Or purple/blue from design */
+    margin: 0 0 3rem 0;
+}
+
+/* Specifically for the job title arrow color if needed */
+.job-title::before {
+    /* content: "> "; already in text content but could be pseudo */
+}
+
+.comment-section {
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.comment-line {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.code-line {
+    margin-top: 1rem;
+    color: var(--text-primary);
+}
+
+.const-keyword {
+    color: var(--accent-blue);
+}
+
+.var-name {
+    color: var(--accent-green);
+}
+
+.string-link {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* --- Right Section --- */
+.home-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 4rem;
+    z-index: 10;
+    position: relative;
+    height: 100%;
+    align-items: center;
+}
+
+/* Gradient Blobs */
+.game-visual-container {
+    position: relative;
+    width: 510px;
+    /* approximates size from image */
+    height: 475px;
+}
+
+.gradient-blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.green-blob {
+    background-color: var(--accent-green);
+    top: -10%;
+    right: -10%;
+    transform: rotate(45deg);
+}
+
+.blue-blob {
+    background-color: var(--accent-blue);
+    bottom: -10%;
+    left: -10%;
+}
+
+/* Game Card */
+.game-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(60px);
+    /* Just in case */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: linear-gradient(150deg, rgba(23, 85, 83, 0.7) 1.7%, rgba(67, 217, 173, 0.09) 81.82%);
+    padding: 30px;
+    box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.3) inset;
+}
+
+.game-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Create the inner panel look */
+    /* Wait, the container above IS the panel, maybe we need inner structure for the game screen and adjacent info */
+    display: flex;
+    gap: 20px;
+}
+
+/* Bolts */
+.bolt {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #114944 30%, #175553 100%);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.5);
+    /* Cross for the screw head */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bolt::after,
+.bolt::before {
+    content: '';
+    position: absolute;
+    background-color: #0d2a2d;
+    opacity: 0.6;
+}
+
+.bolt::after {
+    width: 60%;
+    height: 2px;
+}
+
+.bolt::before {
+    width: 2px;
+    height: 60%;
+}
+
+.top-left {
+    top: 12px;
+    left: 12px;
+}
+
+.top-right {
+    top: 12px;
+    right: 12px;
+}
+
+.bottom-left {
+    bottom: 12px;
+    left: 12px;
+}
+
+.bottom-right {
+    bottom: 12px;
+    right: 12px;
+}
+
+/* Visual layout inside card */
+/* The design shows the game screen on the left of the card, and controls on the right */
+.game-screen-wrapper {
+    flex: 0 0 240px;
+    /* Fixed width for game screen */
+    height: 100%;
+    background-color: rgba(1, 22, 39, 0.84);
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 2px;
+    /* Slight border effect */
+}
+
+.game-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    /* Inner radius */
+    overflow: hidden;
+    background-color: rgba(1, 22, 39, 1);
+}
+
+/* Fake Snake elements */
+.snake-head,
+.snake-body,
+.food {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-green);
+    /* Glow */
+}
+
+.snake-head {
+    background-color: var(--accent-green);
+    border-radius: 50% 50% 2px 2px;
+}
+
+.food {
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Game Over Overlay */
+.game-over-overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(1, 22, 39, 0.85);
+    /* Semi-transparent bar */
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-over-text {
+    font-size: 1.5rem;
+    color: var(--accent-green);
+    margin-bottom: 12px;
+}
+
+.start-again-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.start-again-btn:hover {
+    color: var(--accent-green);
+    /* Hover effect */
+}
+
+/* Controls Info (Right side of card) */
+.game-controls-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.keys-instruction {
+    background-color: rgba(1, 20, 35, 0.19);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.keys-visual {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.key-row {
+    display: flex;
+    gap: 4px;
+}
+
+.key-cap {
+    width: 28px;
+    height: 28px;
+    background-color: #010C15;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 10px;
+}
+
+.food-left-section {
+    padding-left: 10px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.food-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-green);
+    opacity: 0.1;
+    /* Dim by default */
+    box-shadow: none;
+}
+
+.food-dot.eaten {
+    /* Re-using 'eaten' class name but logic is reversed in JSX (foodLeft) -> actually let's call it 'active' */
+    opacity: 1;
+    box-shadow: 0 0 5px var(--accent-green);
+}
+
+.skip-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: transparent;
+    border: 1px solid var(--text-primary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.skip-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .home-container {
+        flex-direction: column;
+        padding: 2rem;
+        overflow-y: auto;
+        /* Allow scroll if content is too tall vertically */
+    }
+
+    .home-left,
+    .home-right {
+        justify-content: center;
+        padding: 0;
+        width: 100%;
+        flex: none;
+    }
+
+    .home-left {
+        margin-bottom: 3rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-wrapper {
+        align-items: center;
+    }
+
+    .home-right {
+        height: auto;
+    }
+}

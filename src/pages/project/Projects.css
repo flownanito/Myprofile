@@ -1,0 +1,159 @@
+.projects-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.projects-sidebar {
+    width: 300px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-dark);
+}
+
+.sidebar-header {
+    height: 56px;
+    /* Match navbar tab height if possible, or just standard header */
+    /* Actually design shows 'projects' with arrow. Looks like a collapsible header. */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.arrow-icon {
+    margin-right: 10px;
+    font-size: 0.8rem;
+    transform: rotate(0deg);
+    /* animate if needed */
+}
+
+.filter-list {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.filter-item:hover {
+    color: var(--text-primary);
+}
+
+.filter-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 2px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-checkbox:checked {
+    background-color: var(--text-secondary);
+    /* or accent */
+    border-color: var(--text-secondary);
+}
+
+.filter-checkbox:checked::after {
+    content: '✓';
+    color: var(--primary-dark);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filter-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    /* Use actual icons if available, else placeholder space */
+    display: none;
+    /* Hide for now if no icons */
+}
+
+.filter-label.active {
+    color: var(--text-primary);
+}
+
+/* Main Content */
+.projects-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-dark);
+}
+
+.projects-tabs {
+    height: 56px;
+    /* Match sidebar header height line */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.tab {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-right: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.tab.active {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-orange);
+    /* Just a guess, or just text color change */
+}
+
+.close-tab {
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.projects-grid {
+    padding: 3rem 4rem;
+    /* Generous padding */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    /* Space between cards */
+    overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+    .projects-container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .projects-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        height: auto;
+    }
+
+    .projects-grid {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,30 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-dark);
+  border: 1px solid var(--border-color);
+  /* Retain border as requested in original design, or remove? I'll keep it but it will be at edges */
+  /* border-radius: 8px; */
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Add a pseudo-element or extra div if we need the specific margin/background shown in design? 
+   The design has a lighter grey/white background outside the dark app. 
+   Currently body background is var(--primary-dark).
+   Wait, the design image shows a white/grey sidebar on the far left? No, that's just the mockup background.
+   The user wants the "home completely identical".
+   I will assume the body background should be dark as well, or maybe the user wants the centered look.
+   I'll stick to the dark theme for the body for now as 'identical to the home' usually refers to the UI itself.*/
+
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  /* Or auto if scrolling needed */
+  position: relative;
+}

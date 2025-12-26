@@ -1,0 +1,104 @@
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Will be controlled by grid */
+    height: 100%;
+}
+
+.card-header {
+    margin-bottom: 12px;
+}
+
+.project-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    /* Greyish for ID part? */
+    margin: 0;
+}
+
+.project-id {
+    color: var(--accent-blue);
+    /* Or purple/blue */
+    font-weight: 700;
+}
+
+.card-body {
+    background-color: var(--secondary-dark);
+    /* Using secondary dark for card bg */
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    /* Fixed height for image area */
+    background-color: #000;
+    /* Placeholder bg */
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tech-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--primary-dark);
+    /* or generic grey */
+    border-radius: 4px;
+    /* Slight rounded */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.view-project-btn {
+    width: fit-content;
+    background-color: #1C2B3A;
+    /* Slightly lighter than bg */
+    color: var(--text-primary);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.view-project-btn:hover {
+    background-color: var(--text-secondary);
+    color: var(--primary-dark);
+}

@@ -1,0 +1,161 @@
+.about-container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Center content in the left pane */
+    padding: 0 4rem;
+    height: 100%;
+    overflow-y: auto;
+    /* Allow scrolling for text */
+    flex-direction: column;
+}
+
+.about-content-wrapper {
+    max-width: 600px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.about-paragraph {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.emoji {
+    margin-right: 0.5rem;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    /* Or another accent color */
+    color: #011627;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 2rem;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: #FFAC6E;
+    /* Slightly lighter orange */
+}
+
+/* Right Section - Code Snippet */
+.about-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* Or a slight tint if needed */
+    height: 100%;
+    border-left: 1px solid var(--border-color, #1E2D3D);
+}
+
+.code-snippet-container {
+    display: flex;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    gap: 1.5rem;
+}
+
+.line-numbers {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    user-select: none;
+}
+
+.code-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.code-line {
+    height: 1.5em;
+    /* Match line height of numbers roughly */
+}
+
+.indent-1 {
+    padding-left: 2rem;
+}
+
+.indent-2 {
+    padding-left: 4rem;
+}
+
+/* Syntax Highlighting */
+.keyword {
+    color: var(--accent-purple, #C98BDF);
+}
+
+.class-name {
+    color: var(--accent-blue, #82AAFF);
+}
+
+.brace {
+    color: var(--text-primary, #E5E9F0);
+}
+
+.this {
+    color: var(--accent-red, #FF6363);
+}
+
+.property {
+    color: var(--accent-green, #43D9AD);
+}
+
+.string {
+    color: var(--accent-orange, #E99287);
+}
+
+.function {
+    color: var(--accent-blue, #82AAFF);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .about-left {
+        padding: 2rem;
+        height: auto;
+        justify-content: flex-start;
+    }
+
+    .about-right {
+        display: none;
+        /* Hide code snippet on small screens or move it */
+    }
+
+    .about-content-wrapper {
+        padding-top: 2rem;
+    }
+}

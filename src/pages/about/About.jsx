@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import cvFile from '../../assets/Currículum Nauzet Del Cristo Sánchez Santana (2025) .pdf';
 
 const About = () => {
     return (
@@ -23,7 +24,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <a href="/cv.pdf" download="Nauzet_Sanchez_CV.pdf" className="download-btn">
+                    <a href={cvFile} download="Nauzet_Sanchez_CV.pdf" className="download-btn">
                         descargar-cv
                     </a>
                 </div>

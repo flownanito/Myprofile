@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import ProjectCard from '../../components/ProjectCard';
+import gestorReservaHotel from '../../assets/gestorReservaHotel.png';
+import distanciaEnfoque from '../../assets/distanciaEnfoque.png';
+import destascosBenito from '../../assets/desatascosBenito.png';
+// import simuladorCasino from '../../assets/simuladorCasino.png';
 import './Projects.css';
 
 const PROJECTS_DATA = [
@@ -8,27 +12,27 @@ const PROJECTS_DATA = [
         title: '_gestor-de-reservas-de-hoteles',
         description: 'Un Gestor de reservas de hoteles que permite a los usuarios reservar habitaciones facilitando la labor de hacer los check-in y check-out.',
         tech: ['React', 'Java', 'SpringBoot', 'PostgreSQL', 'Docker', 'Android-Studio'],
-        image: 'https://via.placeholder.com/300x150/011627/43D9AD?text=Gestor+de+reservas+de+hoteles', // Placeholder
+        image: gestorReservaHotel,
     },
     {
         id: 2,
         title: '_distancia-de-enfoque-cinematografico',
         description: 'Herramienta diseñada para aligerar la labor de las pruebas de óptica en cartas de enfoque, calculando con precisión la distancia de enfoque en cámaras de cine',
         tech: ['Flutter', 'Arduino', 'Git'],
-        image: 'https://via.placeholder.com/300x150/011627/4D5BCE?text=Tetris+Game',
+        image: distanciaEnfoque,
     },
     {
         id: 3,
-        title: '_nimbus',
-        description: 'Duis aute irure dolor in velit esse cillum dolore.',
-        tech: ['Vue'],
-        image: 'https://via.placeholder.com/300x150/011627/E99287?text=Nimbus',
+        title: '_destascos-benito',
+        description: 'Una página web para una empresa de fontanería que permite a los usuarios solicitar servicios y presupuestos de fontanería.',
+        tech: ['HTML', 'CSS', 'JavaScript', 'React'],
+        image: destascosBenito,
     },
     {
         id: 4,
-        title: '_mobile-app',
-        description: 'Duis aute irure dolor in velit esse cillum dolore.',
-        tech: ['Flutter'],
+        title: '_simulador-de-casino',
+        description: 'Un simulador de casino (multihilo) en el que se puede observar como diferentes jugadores van utilizadon estrategias para ganar',
+        tech: ['Java'],
         image: 'https://via.placeholder.com/300x150/011627/607B96?text=Mobile+App',
     }
 ];
@@ -65,7 +69,7 @@ const FilterCheckbox = ({ label, isChecked, onChange }) => (
 );
 
 const Projects = () => {
-    const [selectedFilters, setSelectedFilters] = useState(['React', 'Vue']); // Default from image
+    const [selectedFilters, setSelectedFilters] = useState([]);
 
     const handleFilterChange = (filter) => {
         setSelectedFilters(prev => {

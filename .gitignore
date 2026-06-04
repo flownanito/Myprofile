@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Helper Python scripts for generating PDFs
+generate_cv.py
+generate_cover_letter.py

@@ -164,3 +164,51 @@
         max-width: 100%;
     }
 }
+
+/* Form Status Messages */
+.status-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #011221;
+    border: 1px solid var(--border-color, #1E2D3D);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.status-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.success-message .status-title {
+    color: var(--accent-green, #43D9AD);
+}
+
+.error-message .status-title {
+    color: #E9967A; /* Salmon red */
+}
+
+.status-text {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

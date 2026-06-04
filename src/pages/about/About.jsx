@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
-import cvFile from '../../assets/Currículum Nauzet Del Cristo Sánchez Santana (2025) .pdf';
+import cvFile from '../../assets/Nauzet_Sanchez_CV_2026.pdf';
+import coverLetterFile from '../../assets/Nauzet_Sanchez_Carta_Presentacion_2026.pdf';
 
 const About = () => {
     return (
@@ -14,19 +15,24 @@ const About = () => {
                             <span className="emoji">🚀</span> No solo escribo código: construyo soluciones.
                         </p>
                         <p className="about-paragraph">
-                            Soy desarrollador/a con mentalidad práctica, enfocado/a en entender el problema antes de programar y en entregar resultados claros y funcionales. Me interesa crear software limpio, eficiente y fácil de mantener, pero sobre todo, que tenga impacto real en las personas y en el negocio.
+                            Soy desarrollador de aplicaciones multiplataforma y backend con mentalidad práctica, enfocado en entender el problema antes de programar y en entregar resultados claros y funcionales. Me interesa crear software limpio, eficiente y fácil de mantener, pero sobre todo, que tenga impacto real en las personas y en el negocio.
                         </p>
                         <p className="about-paragraph">
-                            Me adapto rápido a nuevas tecnologías, disfruto trabajar en equipo y no le tengo miedo a los retos técnicos. Creo en el aprendizaje constante, en preguntar cuando es necesario y en mejorar cada línea de código con intención.
+                            Cuento con experiencia en desarrollo web (Ruby on Rails, Spring Boot), programación embebida e integración de sensores (LiDAR/Arduino) y bases de datos SQL. Me adapto rápido a nuevas tecnologías, disfruto trabajar en equipo y no le tengo miedo a los retos técnicos.
                         </p>
                         <p className="about-paragraph">
-                            Busco formar parte de equipos donde la tecnología se use para crear, crecer y hacer las cosas bien.
+                            Busco formar parte de equipos donde la tecnología se use para crear, crecer y aportar valor real.
                         </p>
                     </div>
 
-                    <a href={cvFile} download="Nauzet_Sanchez_CV.pdf" className="download-btn">
-                        descargar-cv
-                    </a>
+                    <div className="buttons-container">
+                        <a href={cvFile} download="Nauzet_Sanchez_CV_2026.pdf" className="download-btn">
+                            descargar-cv
+                        </a>
+                        <a href={coverLetterFile} download="Nauzet_Sanchez_Carta_Presentacion_2026.pdf" className="download-btn">
+                            descargar-carta-presentacion
+                        </a>
+                    </div>
                 </div>
             </div>
 

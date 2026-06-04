@@ -3,7 +3,12 @@ import ProjectCard from '../../components/ProjectCard';
 import gestorReservaHotel from '../../assets/gestorReservaHotel.png';
 import distanciaEnfoque from '../../assets/distanciaEnfoque.png';
 import destascosBenito from '../../assets/desatascosBenito.png';
-// import simuladorCasino from '../../assets/simuladorCasino.png';
+import simuladorCasino from '../../assets/simuladorCasino.png';
+import paintMvc from '../../assets/paintMvc.png';
+import neonOrb from '../../assets/neonOrb.png';
+import menuRestaurantes from '../../assets/menuRestaurantes.png';
+import gestorInventario from '../../assets/gestorInventario.png';
+import concesionario from '../../assets/concesionario.png';
 import './Projects.css';
 
 const PROJECTS_DATA = [
@@ -11,14 +16,14 @@ const PROJECTS_DATA = [
         id: 1,
         title: '_gestor-de-reservas-de-hoteles',
         description: 'Un Gestor de reservas de hoteles que permite a los usuarios reservar habitaciones facilitando la labor de hacer los check-in y check-out.',
-        tech: ['React', 'Java', 'SpringBoot', 'PostgreSQL', 'Docker', 'Android-Studio'],
+        tech: ['React', 'Java', 'SpringBoot', 'PostgreSQL', 'Docker'],
         image: gestorReservaHotel,
     },
     {
         id: 2,
         title: '_distancia-de-enfoque-cinematografico',
-        description: 'Herramienta diseñada para aligerar la labor de las pruebas de óptica en cartas de enfoque, calculando con precisión la distancia de enfoque en cámaras de cine',
-        tech: ['Flutter', 'Arduino', 'Git'],
+        description: 'Herramienta diseñada para aligerar la labor de las pruebas de óptica en cartas de enfoque, calculando con precisión la distancia de enfoque en cámaras de cine.',
+        tech: ['Flutter', 'Arduino'],
         image: distanciaEnfoque,
     },
     {
@@ -31,9 +36,44 @@ const PROJECTS_DATA = [
     {
         id: 4,
         title: '_simulador-de-casino',
-        description: 'Un simulador de casino (multihilo) en el que se puede observar como diferentes jugadores van utilizadon estrategias para ganar',
+        description: 'Un simulador de casino (multihilo) en el que se puede observar cómo diferentes jugadores van utilizando estrategias para ganar.',
         tech: ['Java'],
-        image: 'https://via.placeholder.com/300x150/011627/607B96?text=Mobile+App',
+        image: simuladorCasino,
+    },
+    {
+        id: 5,
+        title: '_paint-mvc',
+        description: 'Actividad de programación en Java que simula una aplicación de Paint implementando un patrón de diseño Modelo-Vista-Controlador (MVC).',
+        tech: ['Java'],
+        image: paintMvc,
+    },
+    {
+        id: 6,
+        title: '_neon-orb-pgl',
+        description: 'Un arcade de física en 2D desarrollado en C# y Unity para la asignatura de Programación Multimedia y Dispositivos Móviles.',
+        tech: ['C#', 'Unity'],
+        image: neonOrb,
+    },
+    {
+        id: 7,
+        title: '_menu-restaurantes-dad',
+        description: 'Aplicación interactiva de menú y pedidos para restaurantes en JavaScript para el módulo de Desarrollo de Interfaces.',
+        tech: ['JavaScript', 'HTML', 'CSS'],
+        image: menuRestaurantes,
+    },
+    {
+        id: 8,
+        title: '_gestor-de-inventario-aed',
+        description: 'Sistema de gestión y control de inventario desarrollado en Java con persistencia de base de datos para Acceso a Datos.',
+        tech: ['Java', 'MySQL'],
+        image: gestorInventario,
+    },
+    {
+        id: 9,
+        title: '_concesionario-aed',
+        description: 'Una aplicación de gestión para un concesionario de vehículos con bases de datos relacionales y gestión de stock de coches.',
+        tech: ['Java', 'MySQL'],
+        image: concesionario,
     }
 ];
 
@@ -43,14 +83,14 @@ const FILTERS = [
     { name: 'SpringBoot', icon: 'spring-icon' },
     { name: 'PostgreSQL', icon: 'postgres-icon' },
     { name: 'Docker', icon: 'docker-icon' },
-    { name: 'Git', icon: 'git-icon' },
-    { name: 'Android-Studio', icon: 'android-icon' },
     { name: 'MySQL', icon: 'mysql-icon' },
     { name: 'HTML', icon: 'html-icon' },
     { name: 'CSS', icon: 'css-icon' },
     { name: 'JavaScript', icon: 'js-icon' },
     { name: 'Arduino', icon: 'arduino-icon' },
     { name: 'Flutter', icon: 'flutter-icon' },
+    { name: 'C#', icon: 'csharp-icon' },
+    { name: 'Unity', icon: 'unity-icon' },
 ];
 
 const FilterCheckbox = ({ label, isChecked, onChange }) => (

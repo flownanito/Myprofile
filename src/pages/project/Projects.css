@@ -134,7 +134,8 @@
     padding: 3rem 4rem;
     /* Generous padding */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
+    justify-content: center;
     gap: 40px;
     /* Space between cards */
     overflow-y: auto;
@@ -155,5 +156,19 @@
 
     .projects-grid {
         padding: 2rem;
+    }
+
+    .filter-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .filter-item {
+        padding: 6px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.02);
     }
 }

@@ -25,13 +25,8 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-left">
                 <span className="find-me">Encuéntrame en:</span>
-                <a href="#" className="social-icon">
-                    {/* Simple representation for Twitter/X */}
-                    <span className="icon">X</span>
-                </a>
-                <a href="#" className="social-icon">
-                    {/* Simple representation for LinkedIn */}
-                    <span className="icon">in</span>
+                <a href="https://www.linkedin.com/in/nauzet-sanchez-311621339/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <LinkedInIcon />
                 </a>
             </div>
             <div className="footer-right">

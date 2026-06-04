@@ -78,3 +78,18 @@
 .social-icon svg path {
     fill-opacity: 1;
 }
+
+@media (max-width: 480px) {
+    .footer {
+        font-size: 14px;
+    }
+    .find-me {
+        margin-right: 8px;
+    }
+    .footer-left {
+        padding-left: 12px;
+    }
+    .footer-right {
+        padding-right: 12px;
+    }
+}

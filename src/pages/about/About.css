@@ -41,6 +41,13 @@
     margin-right: 0.5rem;
 }
 
+.buttons-container {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
 .download-btn {
     display: inline-block;
     background-color: var(--accent-orange);
@@ -50,7 +57,6 @@
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    margin-top: 2rem;
     transition: background-color 0.2s;
     border: none;
     cursor: pointer;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+    const navigate = useNavigate();
     // Game Constants
     const CANVAS_WIDTH = 240; // approx from css
     const CANVAS_HEIGHT = 400; // approx
@@ -15,6 +17,7 @@ const Home = () => {
     const [direction, setDirection] = useState({ x: 0, y: -1 }); // Moving up
     const [gameStarted, setGameStarted] = useState(false);
     const [gameOver, setGameOver] = useState(false);
+    const [gameWon, setGameWon] = useState(false);
     const [score, setScore] = useState(0);
     const [foodLeft, setFoodLeft] = useState(10);
 
@@ -22,20 +25,28 @@ const Home = () => {
 
     // Init/Reset Game
     const startGame = () => {
-        setSnake([{ x: 10, y: 18 }, { x: 10, y: 19 }, { x: 10, y: 20 }]);
-        setFood(generateFood());
+        const initialSnake = [{ x: 10, y: 18 }, { x: 10, y: 19 }, { x: 10, y: 20 }];
+        setSnake(initialSnake);
+        setFood(generateFood(initialSnake));
         setDirection({ x: 0, y: -1 });
         setGameStarted(true);
         setGameOver(false);
+        setGameWon(false);
         setScore(0);
         setFoodLeft(10);
     };
 
-    const generateFood = () => {
-        return {
-            x: Math.floor(Math.random() * COLS),
-            y: Math.floor(Math.random() * ROWS)
-        };
+    const generateFood = (currentSnake = snake) => {
+        let newFood;
+        let isOnSnake = true;
+        while (isOnSnake) {
+            newFood = {
+                x: Math.floor(Math.random() * (COLS - 2)) + 1,
+                y: Math.floor(Math.random() * (ROWS - 2)) + 1
+            };
+            isOnSnake = currentSnake.some(part => part.x === newFood.x && part.y === newFood.y);
+        }
+        return newFood;
     };
 
     // Keyboard Controls
@@ -67,7 +78,7 @@ const Home = () => {
 
     // Game Loop
     useEffect(() => {
-        if (!gameStarted || gameOver) return;
+        if (!gameStarted || gameOver || gameWon) return;
 
         const moveSnake = () => {
             setSnake((prevSnake) => {
@@ -94,11 +105,13 @@ const Home = () => {
 
                 // Check Food
                 if (newHead.x === food.x && newHead.y === food.y) {
-                    setScore(s => s + 1);
-                    setFoodLeft(f => Math.max(0, f - 1));
-                    setFood(generateFood());
-                    if (score + 1 >= 10) {
-                        // Max Score / Win Condition? Just keep playing for now
+                    const newScore = score + 1;
+                    setScore(newScore);
+                    setFoodLeft(Math.max(0, 10 - newScore));
+                    if (newScore >= 10) {
+                        setGameWon(true);
+                    } else {
+                        setFood(generateFood(newSnake));
                     }
                 } else {
                     newSnake.pop(); // Remove tail
@@ -110,7 +123,7 @@ const Home = () => {
 
         gameLoopRef.current = setInterval(moveSnake, 100); // Game Speed
         return () => clearInterval(gameLoopRef.current);
-    }, [gameStarted, gameOver, direction, food, score]);
+    }, [gameStarted, gameOver, gameWon, direction, food, score]);
 
 
     return (
@@ -173,13 +186,19 @@ const Home = () => {
                                         </>
                                     )}
 
-                                    {/* Game Over / Start Screen */}
-                                    {(!gameStarted || gameOver) && (
+                                    {/* Game Over / Start / Win Screen */}
+                                    {(!gameStarted || gameOver || gameWon) && (
                                         <div className="game-over-overlay" style={{ display: 'flex' }}> {/* Override css display:none if needed */}
+                                            {gameWon && (
+                                                <>
+                                                    <span className="game-over-text win-title">WELL DONE!</span>
+                                                    <span className="game-status-desc">YOU WON THE GAME!</span>
+                                                </>
+                                            )}
                                             {gameOver && <span className="game-over-text">GAME OVER!</span>}
-                                            {!gameStarted && !gameOver && <span className="game-over-text">PRESS START</span>}
+                                            {!gameStarted && !gameOver && !gameWon && <span className="game-over-text">PRESS START</span>}
                                             <button className="start-again-btn" onClick={startGame}>
-                                                {gameOver ? 'start-again' : 'start-game'}
+                                                {gameOver || gameWon ? 'start-again' : 'start-game'}
                                             </button>
                                         </div>
                                     )}
@@ -220,7 +239,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <button className="skip-btn">skip</button>
+                            <button className="skip-btn" onClick={() => navigate('/about-me')}>skip</button>
                         </div>
                     </div>
                 </div>

@@ -270,6 +270,12 @@
     margin-bottom: 12px;
 }
 
+.game-status-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
 .start-again-btn {
     background: transparent;
     color: var(--text-primary);
@@ -400,5 +406,49 @@
 
     .home-right {
         height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .game-visual-container {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+    .game-card {
+        padding: 15px;
+        height: auto;
+    }
+    .game-panel {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .game-controls-info {
+        padding-top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    .keys-instruction {
+        margin-bottom: 0;
+        width: 120px;
+    }
+    .food-left-section {
+        padding-left: 0;
+    }
+    .skip-btn {
+        position: static;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .gradient-blob {
+        width: 250px;
+        height: 250px;
+        filter: blur(50px);
     }
 }

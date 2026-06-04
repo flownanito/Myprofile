@@ -8,6 +8,7 @@
 
 .card-header {
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .project-title {
@@ -76,6 +77,8 @@
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
 .project-description {

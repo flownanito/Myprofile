@@ -23,6 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Helper Python scripts for generating PDFs
+# Helper Python scripts for generating PDFs and assets
 generate_cv.py
 generate_cover_letter.py
+generate_logo_png.py
+.vercel
+.env*

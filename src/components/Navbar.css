@@ -1,72 +1,204 @@
-.navbar {
-    display: flex;
+/* Editorial Luxury Navbar Styles */
+
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 56px;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--primary-dark);
-    font-size: 16px;
+    z-index: 9000;
+    transition: all var(--transition-smooth);
+    padding: 1.25rem 0;
 }
 
-.navbar-left {
-    width: 300px;
-    /* Adjust as needed */
+.navbar-wrapper.is-scrolled {
+    padding: 0.75rem 0;
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
-    padding-left: 22px;
-    border-right: 1px solid var(--border-color);
+    justify-content: space-between;
 }
 
-.navbar-name {
-    color: var(--text-secondary);
-    font-weight: 500;
+@media (min-width: 768px) {
+    .navbar-container {
+        padding: 0 2.5rem;
+    }
 }
 
-.navbar-center {
-    display: flex;
-    flex-grow: 1;
-}
-
-.nav-item {
+/* Brand */
+.navbar-brand {
     display: flex;
     align-items: center;
-    padding: 0 32px;
-    border-right: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    height: 100%;
-    position: relative;
+    gap: 0.85rem;
+    text-decoration: none;
 }
 
-.nav-item.active {
+.brand-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--text-primary);
-    border-bottom: 3px solid var(--accent-orange);
-    /* Using orange for active state accent */
 }
 
-.nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    /* Subtle hover effect */
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
 }
 
-.navbar-right {
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulseGlow 2s infinite;
+}
+
+/* Nav Links */
+.navbar-nav {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav {
+        display: flex;
+    }
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+    padding: 0.4rem 0;
+}
+
+.nav-index {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link:hover .nav-index {
+    color: var(--accent);
+}
+
+/* Actions */
+.navbar-actions {
     display: flex;
     align-items: center;
-    border-left: 1px solid var(--border-color);
-    /* Separator for contact me */
+    gap: 0.75rem;
 }
 
-/* Specific adjustment for contact-me if it needs to be far right */
-/* But the design shows it just on the right side of the bar, maybe specific width? */
-.navbar-right .nav-item {
-    border-right: none;
-    border-left: 1px solid var(--border-color);
+.cv-action-btn {
+    display: none;
 }
 
-@media (max-width: 680px) {
-    .navbar-left {
+@media (min-width: 640px) {
+    .cv-action-btn {
+        display: inline-flex;
+    }
+}
+
+.talk-btn {
+    padding: 0.55rem 1.25rem;
+    font-size: 0.85rem;
+}
+
+/* Mobile Toggle */
+.mobile-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 992px) {
+    .mobile-toggle-btn {
         display: none;
     }
-    .nav-item {
-        padding: 0 12px;
-        font-size: 0.85rem;
-    }
+}
+
+.hamburger-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-medium);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow-elevated);
+}
+
+.mobile-drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.mobile-nav-link {
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: var(--font-serif);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.mobile-drawer-footer {
+    margin-top: 1rem;
+}
+
+.w-full {
+    width: 100%;
 }

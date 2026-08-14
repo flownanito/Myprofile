@@ -4,8 +4,9 @@ import './Contact.css';
 const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-    const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+    const [status, setStatus] = useState('idle');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,17 +19,19 @@ const Contact = () => {
                     "Accept": "application/json"
                 },
                 body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    message: message
+                    name,
+                    email,
+                    subject: subject || 'Contacto desde Portfolio Nauzet Sánchez',
+                    message
                 })
             });
 
             const data = await response.json();
-            if (response.ok && data.success === "true") {
+            if (response.ok && (data.success === "true" || data.success === true)) {
                 setStatus('success');
                 setName('');
                 setEmail('');
+                setSubject('');
                 setMessage('');
             } else {
                 setStatus('error');
@@ -40,90 +43,146 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-container">
-            <div className="contact-left">
-                <div className="contact-form-wrapper">
-                    <h1 className="section-title">_contacto</h1>
-
-                    {status === 'success' ? (
-                        <div className="status-message success-message">
-                            <h2 className="status-title">_¡gracias! 🚀</h2>
-                            <p className="status-text">Tu mensaje ha sido enviado correctamente. Te responderé lo antes posible.</p>
-                            <button onClick={() => setStatus('idle')} className="submit-btn">enviar-otro-mensaje</button>
-                        </div>
-                    ) : status === 'error' ? (
-                        <div className="status-message error-message">
-                            <h2 className="status-title">_¡vaya! ❌</h2>
-                            <p className="status-text">Hubo un error al enviar tu mensaje. Por favor, vuelve a intentarlo.</p>
-                            <button onClick={() => setStatus('idle')} className="submit-btn">intentar-de-nuevo</button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="contact-form">
-                            <div className="form-group">
-                                <label htmlFor="name" className="form-label">_nombre:</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    className="form-input"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                    disabled={status === 'submitting'}
-                                />
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="email" className="form-label">_email:</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="form-input"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    disabled={status === 'submitting'}
-                                />
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="message" className="form-label">_mensaje:</label>
-                                <textarea
-                                    id="message"
-                                    className="form-textarea"
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    required
-                                    disabled={status === 'submitting'}
-                                ></textarea>
-                            </div>
-
-                            <button type="submit" className="submit-btn" disabled={status === 'submitting'}>
-                                {status === 'submitting' ? 'enviando...' : 'enviar-mensaje'}
-                            </button>
-                        </form>
-                    )}
+        <div className="contact-page-wrapper">
+            <div className="container">
+                <div className="section-header">
+                    <div className="section-eyebrow font-mono">
+                        <span>06</span> / DIÁLOGO & OPORTUNIDADES
+                    </div>
+                    <h1 className="section-title">
+                        Iniciar <em>Conversación</em>
+                    </h1>
+                    <p className="section-subtitle">
+                        Disponible para proyectos de producto digital, ingeniería de software backend e integraciones IoT.
+                    </p>
                 </div>
-            </div>
 
-            <div className="contact-right">
-                <div className="contact-info-container">
-                    <h3 className="info-title">También puedes encontrarme en:</h3>
+                <div className="contact-editorial-grid">
+                    <div className="contact-info-panel">
+                        <h3 className="info-title font-serif">Canales Directos</h3>
+                        <p className="info-desc">
+                            Puedes escribirme directamente por correo o mensajería, o bien rellenar el formulario de contacto para una respuesta formal en menos de 24 horas.
+                        </p>
 
-                    <div className="info-item">
-                        <span className="info-label">_email:</span>
-                        <a href="mailto:nauzetsanchez4@gmail.com" className="info-link">nauzetsanchez4@gmail.com</a>
+                        <div className="direct-channels-list">
+                            <div className="channel-item">
+                                <span className="channel-label font-mono">Email</span>
+                                <a href="mailto:nauzetsanchez4@gmail.com" className="channel-link font-serif">
+                                    nauzetsanchez4@gmail.com ↗
+                                </a>
+                            </div>
+
+                            <div className="channel-item">
+                                <span className="channel-label font-mono">Teléfono / WhatsApp</span>
+                                <a href="tel:+34613482484" className="channel-link font-serif">
+                                    +34 613 482 484 ↗
+                                </a>
+                            </div>
+
+                            <div className="channel-item">
+                                <span className="channel-label font-mono">LinkedIn</span>
+                                <a
+                                    href="https://www.linkedin.com/in/nauzet-sanchez-311621339/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="channel-link font-serif"
+                                >
+                                    linkedin.com/in/nauzet-sanchez ↗
+                                </a>
+                            </div>
+
+                            <div className="channel-item">
+                                <span className="channel-label font-mono">GitHub</span>
+                                <a
+                                    href="https://github.com/flownanito"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="channel-link font-serif"
+                                >
+                                    github.com/flownanito ↗
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="info-item">
-                        <span className="info-label">_teléfono:</span>
-                        <a href="tel:+34613482484" className="info-link">+34 613 482 484</a>
-                    </div>
+                    <div className="contact-form-panel">
+                        <div className="form-card">
+                            {status === 'success' ? (
+                                <div className="form-feedback success">
+                                    <div className="feedback-icon">✓</div>
+                                    <h4 className="feedback-title font-serif">Mensaje enviado correctamente</h4>
+                                    <p className="feedback-desc">
+                                        Gracias por escribir. Te responderé lo antes posible.
+                                    </p>
+                                    <button onClick={() => setStatus('idle')} className="btn-secondary font-mono">
+                                        Enviar otro mensaje
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="editorial-form">
+                                    {status === 'error' && (
+                                        <div className="form-feedback error">
+                                            <span>Ocurrió un error al enviar tu mensaje. Por favor, contáctame directamente por correo a nauzetsanchez4@gmail.com</span>
+                                        </div>
+                                    )}
 
-                    <div className="info-item">
-                        <span className="info-label">_linkedin:</span>
-                        <a href="https://www.linkedin.com/in/nauzet-sanchez-311621339/" target="_blank" rel="noopener noreferrer" className="info-link">
-                            linkedin.com/in/nauzet-sanchez-311621339
-                        </a>
+                                    <div className="form-group">
+                                        <label htmlFor="name" className="form-label font-mono">01. Nombre *</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            className="form-input"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            required
+                                            disabled={status === 'submitting'}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="email" className="form-label font-mono">02. Email *</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            className="form-input"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                            disabled={status === 'submitting'}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="subject" className="form-label font-mono">03. Asunto</label>
+                                        <input
+                                            type="text"
+                                            id="subject"
+                                            className="form-input"
+                                            value={subject}
+                                            onChange={(e) => setSubject(e.target.value)}
+                                            disabled={status === 'submitting'}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="message" className="form-label font-mono">04. Mensaje *</label>
+                                        <textarea
+                                            id="message"
+                                            className="form-textarea"
+                                            rows="5"
+                                            value={message}
+                                            onChange={(e) => setMessage(e.target.value)}
+                                            required
+                                            disabled={status === 'submitting'}
+                                        ></textarea>
+                                    </div>
+
+                                    <button type="submit" className="btn-primary w-full form-submit-btn" disabled={status === 'submitting'}>
+                                        {status === 'submitting' ? 'Enviando...' : 'Enviar Mensaje ↗'}
+                                    </button>
+                                </form>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

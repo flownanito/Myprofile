@@ -1,64 +1,90 @@
 import React from 'react';
+import profilePic from '../../assets/profile_pic.jpg';
 import './About.css';
-import cvFile from '../../assets/Nauzet_Sanchez_CV_2026.pdf';
-import coverLetterFile from '../../assets/Nauzet_Sanchez_Carta_Presentacion_2026.pdf';
 
 const About = () => {
     return (
-        <div className="about-container">
-            <div className="about-left">
-                <div className="about-content-wrapper">
-                    <h1 className="section-title">_sobre-mi</h1>
-
-                    <div className="about-text-content">
-                        <p className="about-paragraph">
-                            <span className="emoji">🚀</span> No solo escribo código: construyo soluciones.
-                        </p>
-                        <p className="about-paragraph">
-                            Soy desarrollador de aplicaciones multiplataforma y backend con mentalidad práctica, enfocado en entender el problema antes de programar y en entregar resultados claros y funcionales. Me interesa crear software limpio, eficiente y fácil de mantener, pero sobre todo, que tenga impacto real en las personas y en el negocio.
-                        </p>
-                        <p className="about-paragraph">
-                            Cuento con experiencia en desarrollo web (Ruby on Rails, Spring Boot), programación embebida e integración de sensores (LiDAR/Arduino) y bases de datos SQL. Me adapto rápido a nuevas tecnologías, disfruto trabajar en equipo y no le tengo miedo a los retos técnicos.
-                        </p>
-                        <p className="about-paragraph">
-                            Busco formar parte de equipos donde la tecnología se use para crear, crecer y aportar valor real.
-                        </p>
+        <div className="about-page-wrapper">
+            <div className="container">
+                <div className="section-header">
+                    <div className="section-eyebrow font-mono">
+                        <span>05</span> / TRAYECTORIA & FILOSOFÍA DE PRODUCTO
                     </div>
-
-                    <div className="buttons-container">
-                        <a href={cvFile} download="Nauzet_Sanchez_CV_2026.pdf" className="download-btn">
-                            descargar-cv
-                        </a>
-                        <a href={coverLetterFile} download="Nauzet_Sanchez_Carta_Presentacion_2026.pdf" className="download-btn">
-                            descargar-carta-presentacion
-                        </a>
-                    </div>
+                    <h1 className="section-title">
+                        Nauzet Sánchez: <em>Digital Product Developer</em>
+                    </h1>
+                    <p className="section-subtitle">
+                        Transformando conceptos complejos en aplicaciones funcionales, robustas y de alto impacto.
+                    </p>
                 </div>
-            </div>
 
-            <div className="about-right">
-                <div className="code-snippet-container">
-                    <div className="line-numbers">
-                        {Array.from({ length: 18 }, (_, i) => i + 1).map(num => (
-                            <div key={num}>{num}</div>
-                        ))}
+                <div className="about-editorial-grid">
+                    <div className="about-portrait-card">
+                        <div className="portrait-image-wrapper">
+                            <img src={profilePic} alt="Nauzet Sánchez" className="portrait-img" />
+                            <div className="portrait-badge font-mono">
+                                <span className="live-dot"></span> Full Stack & IoT Engineer
+                            </div>
+                        </div>
+
+                        <div className="about-downloads-panel">
+                            <h4 className="panel-title font-serif">Dossier Profesional</h4>
+                            <p className="panel-desc font-mono">Descargas oficiales (PDF 2026)</p>
+                            <a
+                                href="/Nauzet_Sanchez_CV_2026.pdf"
+                                download="Nauzet_Sanchez_CV_2026.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary font-mono w-full"
+                            >
+                                Descargar CV Completo
+                            </a>
+                            <a
+                                href="/Nauzet_Sanchez_Carta_Presentacion_2026.pdf"
+                                download="Nauzet_Sanchez_Carta_Presentacion_2026.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-secondary font-mono w-full"
+                            >
+                                Descargar Carta de Presentación (PDF)
+                            </a>
+                        </div>
                     </div>
-                    <div className="code-content">
-                        <div className="code-line"><span className="keyword">class</span> <span className="class-name">Developer</span> <span className="brace">{'{'}</span></div>
-                        <div className="code-line indent-1"><span className="keyword">constructor</span>() <span className="brace">{'{'}</span></div>
-                        <div className="code-line indent-2"><span className="this">this</span>.<span className="property">name</span> = <span className="string">'Nauzet Sánchez'</span>;</div>
-                        <div className="code-line indent-2"><span className="this">this</span>.<span className="property">role</span> = <span className="string">'Backend Developer'</span>;</div>
-                        <div className="code-line indent-2"><span className="this">this</span>.<span className="property">traits</span> = [<span className="string">'Clean Code'</span>, <span className="string">'Solutions Oriented'</span>];</div>
-                        <div className="code-line indent-1"><span className="brace">{'}'}</span></div>
-                        <div className="code-line"></div>
-                        <div className="code-line indent-1"><span className="keyword">work</span>() <span className="brace">{'{'}</span></div>
-                        <div className="code-line indent-2"><span className="keyword">return</span> <span className="function">createImpact</span>();</div>
-                        <div className="code-line indent-1"><span className="brace">{'}'}</span></div>
-                        <div className="code-line indent-1"></div>
-                        <div className="code-line indent-1"><span className="keyword">collaboration</span>() <span className="brace">{'{'}</span></div>
-                        <div className="code-line indent-2"><span className="keyword">return</span> [<span className="string">'Teamwork'</span>, <span className="string">'Continuous Learning'</span>];</div>
-                        <div className="code-line indent-1"><span className="brace">{'}'}</span></div>
-                        <div className="code-line"><span className="brace">{'}'}</span></div>
+
+                    <div className="about-editorial-content">
+                        <div className="quote-box font-serif">
+                            "No solo escribo código: pienso la solución, modelo la arquitectura y construyo productos que generan valor real."
+                        </div>
+
+                        <div className="narrative-paragraphs">
+                            <p>
+                                Soy desarrollador de software con mentalidad de producto, especializado en sistemas backend (Java Spring Boot, Ruby on Rails), desarrollo multiplataforma e interfaces web modernas con React.
+                            </p>
+                            <p>
+                                Mi experiencia abarca desde el desarrollo web en la nube y modelado de bases de datos relacionales (PostgreSQL, MySQL) hasta la integración de hardware y sensores de precisión (LiDAR, Arduino, Flutter) para aplicaciones cinematográficas.
+                            </p>
+                            <p>
+                                Mi enfoque de trabajo se centra en el rigor arquitectónico (Clean Architecture, SOLID, MVC), la concurrencia determinista y la entrega iterativa, asegurando siempre que la tecnología esté al servicio de los objetivos de negocio y la satisfacción del usuario.
+                            </p>
+                        </div>
+
+                        <div className="about-values-grid">
+                            <div className="value-card">
+                                <span className="value-icon">🎯</span>
+                                <h4 className="value-title font-serif">Product Thinking</h4>
+                                <p className="value-desc">Entender el porqué del producto antes de definir el cómo técnico.</p>
+                            </div>
+                            <div className="value-card">
+                                <span className="value-icon">⚡</span>
+                                <h4 className="value-title font-serif">Clean Craftsmanship</h4>
+                                <p className="value-desc">Código limpio, modular, tipado y preparado para escalar sin deuda técnica.</p>
+                            </div>
+                            <div className="value-card">
+                                <span className="value-icon">🤝</span>
+                                <h4 className="value-title font-serif">Colaboración Ágil</h4>
+                                <p className="value-desc">Comunicación fluida, integración continua y resolución colaborativa de problemas.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
